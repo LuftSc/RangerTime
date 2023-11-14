@@ -1,0 +1,173 @@
+[gd_scene load_steps=21 format=3 uid="uid://bjcae5dk5hf0l"]
+
+[ext_resource type="Texture2D" uid="uid://bn7fa0s53bnhu" path="res://Sprites/Background/TlieMapFloor16x16.png" id="1_k51is"]
+[ext_resource type="Script" path="res://Scripts/ControllerPlayer.cs" id="2_hyf5p"]
+[ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_rk8u5"]
+[ext_resource type="Texture2D" uid="uid://clshj0otimpcp" path="res://Sprites/Hero/SpriteIdle.png" id="2_w0u81"]
+[ext_resource type="Texture2D" uid="uid://yaq30df8fqh2" path="res://Sprites/Background/WALLSParallax.png" id="3_0lamf"]
+[ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="4_15c0t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5e1t8"]
+texture = ExtResource("1_k51is")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.125, 8, 0.125, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.125, 8, 0.125, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.125, 8, 0.125, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_m8jl0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5e1t8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
+size = Vector2(102, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeoyo"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt4l3"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yotac"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctcus"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mngod"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwyb4"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng2s6"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cox2p"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xse2f"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjrfr"]
+atlas = ExtResource("4_15c0t")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvxrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeoyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt4l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yotac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctcus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mngod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwyb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng2s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cox2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xse2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjrfr")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[node name="CosmicShip" type="Node2D"]
+
+[node name="Floor" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_m8jl0")
+format = 2
+layer_0/tile_data = PackedInt32Array(2424833, 65536, 0, 2424834, 65536, 0, 2424835, 65536, 0, 2424836, 65536, 0, 2424837, 65536, 0, 2424838, 65536, 0, 2424839, 65536, 0, 2424840, 65536, 0, 2424841, 65536, 0, 2424842, 65536, 0, 2424843, 65536, 0, 2424844, 65536, 0, 2424845, 65536, 0, 2424846, 65536, 0, 2424847, 65536, 0, 2424848, 65536, 0, 2424849, 65536, 0, 2424850, 65536, 0, 2424851, 65536, 0, 2424852, 65536, 0, 2424853, 65536, 0, 2424854, 65536, 0, 2424855, 65536, 0, 2424856, 65536, 0, 2424857, 65536, 0, 2424858, 65536, 0, 2490394, 65536, 0, 2490395, 65536, 0, 2490396, 65536, 0, 2490397, 65536, 0, 2490398, 65536, 0, 2490399, 65536, 0, 2490400, 65536, 0, 2424865, 65536, 0, 2424866, 65536, 0, 2424867, 65536, 0, 2424868, 65536, 0, 2424869, 65536, 0, 2424870, 65536, 0, 2424871, 65536, 0, 2424872, 65536, 0, 2424873, 65536, 0, 2424874, 65536, 0, 2424875, 65536, 0, 2424876, 65536, 0, 2424877, 65536, 0, 2424878, 65536, 0, 2424879, 65536, 0, 2424880, 65536, 0, 2424881, 65536, 0, 2424882, 65536, 0, 2424883, 65536, 0, 2424884, 65536, 0, 2424885, 65536, 0, 2424886, 65536, 0, 2424887, 65536, 0, 2424888, 65536, 0, 2424889, 65536, 0, 2424890, 65536, 0, 2424891, 65536, 0, 2424892, 65536, 0, 2424893, 65536, 0, 2424894, 65536, 0, 2424895, 65536, 0, 2424896, 65536, 0, 2424897, 65536, 0, 2424898, 65536, 0, 2424899, 65536, 0, 2424900, 65536, 0, 2424901, 65536, 0, 2424902, 65536, 0, 2424903, 65536, 0, 2424904, 65536, 0, 2424905, 65536, 0, 2424906, 65536, 0, 2424907, 65536, 0, 2424908, 65536, 0, 2424909, 65536, 0, 2424910, 65536, 0, 2424911, 65536, 0, 2424912, 65536, 0, 2424913, 65536, 0, 2424914, 65536, 0, 2424915, 65536, 0, 2424916, 65536, 0, 2424917, 65536, 0, 2424918, 65536, 0, 2424919, 65536, 0, 2424920, 65536, 0, 2424921, 65536, 0, 2424922, 65536, 0, 2424923, 65536, 0, 2424924, 65536, 0, 2424925, 65536, 0, 2424926, 65536, 0, 2424927, 65536, 0, 2424928, 65536, 0, 2424929, 65536, 0, 2424930, 65536, 0, 2424931, 65536, 0, 2424932, 65536, 0, 2424933, 65536, 0, 2424934, 65536, 0, 2424935, 65536, 0, 2424936, 65536, 0, 2424937, 65536, 0, 2490473, 65536, 0, 2490474, 65536, 0, 2490475, 65536, 0, 2490476, 65536, 0, 2490477, 65536, 0, 2490478, 65536, 0, 2490479, 65536, 0, 2490480, 65536, 0, 2490481, 65536, 0, 2490482, 65536, 0, 2490483, 65536, 0, 2490484, 65536, 0, 2490485, 65536, 0, 2490486, 65536, 0, 2490487, 65536, 0, 2490488, 65536, 0, 2490489, 65536, 0, 2490490, 65536, 0, 2424954, 65536, 0, 2424955, 65536, 0, 2424956, 65536, 0, 2424957, 65536, 0, 2424958, 65536, 0, 2424959, 65536, 0, 2424960, 65536, 0, 2424961, 65536, 0, 2424962, 65536, 0, 2424963, 65536, 0, 2424964, 65536, 0, 2424965, 65536, 0, 2424966, 65536, 0, 2424967, 65536, 0, 2424968, 65536, 0, 2424969, 65536, 0, 2424970, 65536, 0, 2424971, 65536, 0, 2424972, 65536, 0, 2424973, 65536, 0, 2424974, 65536, 0, 2424975, 65536, 0, 2424976, 65536, 0, 2424977, 65536, 0, 2424978, 65536, 0, 2424979, 65536, 0, 2424980, 65536, 0, 2424981, 65536, 0, 2424982, 65536, 0, 2424983, 65536, 0, 2424984, 65536, 0, 2424985, 65536, 0, 2424986, 65536, 0, 2424987, 65536, 0, 2424988, 65536, 0, 2424989, 65536, 0, 2424990, 65536, 0, 2424991, 65536, 0, 2424992, 65536, 0, 2424993, 65536, 0, 2424994, 65536, 0, 2424995, 65536, 0, 2359460, 65536, 0, 2359461, 65536, 0, 2359462, 65536, 0, 2359463, 65536, 0, 2359464, 65536, 0, 2359465, 65536, 0, 2359466, 65536, 0, 2359467, 65536, 0, 2359468, 65536, 0, 2359469, 65536, 0, 2359470, 65536, 0, 2359471, 65536, 0, 2359472, 65536, 0, 2359473, 65536, 0, 2359474, 65536, 0, 2359475, 65536, 0, 2359476, 65536, 0, 2359477, 65536, 0, 2359478, 65536, 0, 2359479, 65536, 0, 2359480, 65536, 0, 2359481, 65536, 0, 2359482, 65536, 0, 2359483, 65536, 0, 2359484, 65536, 0, 2359485, 65536, 0, 2359486, 65536, 0, 2359487, 65536, 0, 2359488, 65536, 0, 2359489, 65536, 0, 2359490, 65536, 0, 2359491, 65536, 0, 2359492, 65536, 0, 2359493, 65536, 0, 2359494, 65536, 0, 2359495, 65536, 0, 2359496, 65536, 0, 2359497, 65536, 0, 2359498, 65536, 0, 2359499, 65536, 0, 2359500, 65536, 0, 2359501, 65536, 0, 2359502, 65536, 0, 2359503, 65536, 0, 2359504, 65536, 0, 2359505, 65536, 0, 2359506, 65536, 0, 2359507, 65536, 0, 2359508, 65536, 0, 2359509, 65536, 0, 2359510, 65536, 0, 2359511, 65536, 0, 2359512, 65536, 0, 2359513, 65536, 0, 2359514, 65536, 0, 2359515, 65536, 0, 2359516, 65536, 0, 2359517, 65536, 0, 2359518, 65536, 0, 2359519, 65536, 0, 2359520, 65536, 0, 2359521, 65536, 0, 2359522, 65536, 0, 2359523, 65536, 0, 2359524, 65536, 0, 2359525, 65536, 0, 2359526, 65536, 0, 2359527, 65536, 0, 2359528, 65536, 0, 2359529, 65536, 0, 2359530, 65536, 0, 2359531, 65536, 0, 2359532, 65536, 0, 2359533, 65536, 0, 2359534, 65536, 0, 2359535, 65536, 0, 2359536, 65536, 0, 2359537, 65536, 0, 2359538, 65536, 0, 2359539, 65536, 0, 2359540, 65536, 0, 2359541, 65536, 0, 2359542, 65536, 0, 2359543, 65536, 0, 2359544, 65536, 0, 2359545, 65536, 0, 2359546, 65536, 0, 2359547, 65536, 0, 2359548, 65536, 0, 2359549, 65536, 0, 2359550, 65536, 0, 2359551, 65536, 0, 2359552, 65536, 0, 2359553, 65536, 0, 2359554, 65536, 0, 2359555, 65536, 0, 2359556, 65536, 0, 2359557, 65536, 0, 2359558, 65536, 0, 2359559, 65536, 0, 2359560, 65536, 0, 2359561, 65536, 0, 2359562, 65536, 0, 2359563, 65536, 0, 2359564, 65536, 0, 2359565, 65536, 0, 2359566, 65536, 0, 2359567, 65536, 0, 2359568, 65536, 0, 2359569, 65536, 0, 2359570, 65536, 0, 2359571, 65536, 0, 2359572, 65536, 0, 2359573, 65536, 0, 2359574, 65536, 0, 2294039, 65536, 0, 2294040, 65536, 0, 2294041, 65536, 0, 2294042, 65536, 0, 2294043, 65536, 0, 2294044, 65536, 0, 2294045, 65536, 0, 2294046, 65536, 0, 2294047, 65536, 0, 2294048, 65536, 0, 2294049, 65536, 0, 2294050, 65536, 0, 2294051, 65536, 0, 2294052, 65536, 0, 2294053, 65536, 0, 2294054, 65536, 0, 2294055, 65536, 0, 2294056, 65536, 0, 2294057, 65536, 0, 2294058, 65536, 0, 2294059, 65536, 0, 2294060, 65536, 0, 2294061, 65536, 0, 2294062, 65536, 0, 2294063, 65536, 0, 2294064, 65536, 0, 2294065, 65536, 0, 2294066, 65536, 0, 2294067, 65536, 0, 2294068, 65536, 0, 2294069, 65536, 0, 2294070, 65536, 0, 2294071, 65536, 0, 2294072, 65536, 0, 2294073, 65536, 0)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="spaceSprite" type="Sprite2D" parent="ParallaxBackground/Space"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_rk8u5")
+centered = false
+
+[node name="Ship" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(960, 0)
+
+[node name="WallSprite" type="Sprite2D" parent="ParallaxBackground/Ship"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_0lamf")
+centered = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(164, 544)
+script = ExtResource("2_hyf5p")
+metadata/_edit_group_ = true
+
+[node name="IdleSprite" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_w0u81")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(3, -12)
+shape = SubResource("RectangleShape2D_6goo0")
+
+[node name="RunSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mvxrc")
+animation = &"Run"
+frame = 7
+frame_progress = 0.921809
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(1, 0)
+limit_left = 0
+limit_top = 0
+limit_bottom = 320
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_right_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
