@@ -1,0 +1,272 @@
+[gd_scene load_steps=36 format=3 uid="uid://bjcae5dk5hf0l"]
+
+[ext_resource type="TileSet" uid="uid://vlbo2yyf0eg0" path="res://Tileset/TileMapFloor.tres" id="1_i3syr"]
+[ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_1fvn5"]
+[ext_resource type="Texture2D" uid="uid://yaq30df8fqh2" path="res://Sprites/Background/WALLSParallax.png" id="3_lia55"]
+[ext_resource type="Script" path="res://Scripts/ControllerPlayer.cs" id="4_fyanq"]
+[ext_resource type="Texture2D" uid="uid://clshj0otimpcp" path="res://Sprites/Hero/SpriteIdle.png" id="5_l18a8"]
+[ext_resource type="Texture2D" uid="uid://dbr0iq7hpl4g4" path="res://Sprites/Hero/SpriteJumpUp.png" id="6_wfttc"]
+[ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="7_ops7n"]
+[ext_resource type="Script" path="res://Scripts/EvilControl.cs" id="8_ue24f"]
+[ext_resource type="Texture2D" uid="uid://o1bxd4cgwb13" path="res://Sprites/Evil/evilSprite.png" id="9_fwep5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
+size = Vector2(108, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljsvl"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4omau"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pau0m"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn6r6"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ykx6"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5wy3"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bytnc"]
+atlas = ExtResource("5_l18a8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndtgt"]
+atlas = ExtResource("6_wfttc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chufc"]
+atlas = ExtResource("6_wfttc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeoyo"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt4l3"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yotac"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctcus"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mngod"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwyb4"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng2s6"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cox2p"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xse2f"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjrfr"]
+atlas = ExtResource("7_ops7n")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvxrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljsvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4omau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pau0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn6r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ykx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5wy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bytnc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndtgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chufc")
+}],
+"loop": true,
+"name": &"JumpUp",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeoyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt4l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yotac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctcus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mngod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwyb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng2s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cox2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xse2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjrfr")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylgfd"]
+atlas = ExtResource("9_fwep5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3rqu"]
+atlas = ExtResource("9_fwep5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vum8f"]
+atlas = ExtResource("9_fwep5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cx0b5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylgfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3rqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vum8f")
+}],
+"loop": true,
+"name": &"evilSprite",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sik1w"]
+radius = 54.0
+height = 124.0
+
+[node name="CosmicShip" type="Node2D"]
+
+[node name="Floor" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("1_i3syr")
+format = 2
+layer_0/tile_data = PackedInt32Array(2424832, 0, 0, 2424833, 0, 0, 2424834, 0, 0, 2424835, 0, 0, 2424836, 0, 0, 2424837, 0, 0, 2424838, 0, 0, 2424839, 0, 0, 2424840, 0, 0, 2424841, 0, 0, 2424842, 0, 0, 2424843, 0, 0, 2424844, 0, 0, 2424845, 0, 0, 2424846, 0, 0, 2424847, 0, 0, 2424848, 0, 0, 2424849, 0, 0, 2424850, 0, 0, 2424851, 0, 0, 2424852, 0, 0, 2424853, 0, 0, 2424854, 0, 0, 2424855, 0, 0, 2424856, 0, 0, 2424857, 0, 0, 2424858, 0, 0, 2424859, 0, 0, 2424860, 0, 0, 2424861, 0, 0, 2424862, 0, 0, 2424863, 0, 0, 2424864, 65536, 0, 2424865, 131072, 0, 2424866, 0, 0, 2424867, 0, 0, 2424868, 0, 0, 2424869, 0, 0, 2424870, 0, 0, 2424871, 0, 0, 2424874, 0, 0, 2424873, 0, 0, 2424872, 0, 0, 2424875, 196608, 0, 2424876, 0, 0, 2424877, 0, 0, 2424878, 0, 0, 2424879, 0, 0, 2424880, 0, 0, 2424881, 0, 0, 2424882, 0, 0, 2424883, 0, 0, 2424884, 0, 0, 2424885, 0, 0, 2424886, 0, 0, 2424887, 0, 0, 2424888, 0, 0, 2424889, 0, 0, 2424890, 0, 0, 2424891, 0, 0, 2424892, 0, 0, 2424893, 0, 0, 2424894, 0, 0, 2424895, 0, 0, 2424896, 0, 0, 2424897, 0, 0, 2424898, 0, 0, 2424899, 0, 0, 2424900, 0, 0, 2424901, 0, 0, 2424902, 0, 0, 2424903, 0, 0, 2424904, 0, 0, 2424905, 0, 0, 2424906, 0, 0, 2424907, 0, 0, 2424908, 0, 0, 2424909, 0, 0, 2424910, 0, 0, 2424911, 0, 0, 2424912, 0, 0, 2424913, 0, 0, 2424914, 0, 0, 2424915, 0, 0, 2424916, 0, 0, 2424917, 0, 0, 2424918, 0, 0, 2424919, 0, 0, 2424920, 0, 0, 2424921, 0, 0, 2424922, 0, 0, 2424923, 0, 0, 2424924, 65536, 0, 2424925, 131072, 0, 2424926, 0, 0, 2424927, 0, 0, 2424928, 0, 0, 2424929, 0, 0, 2424930, 0, 0, 2424931, 0, 0, 2424932, 0, 0, 2424933, 0, 0, 2424934, 0, 0, 2424935, 196608, 0, 2424936, 0, 0, 2424937, 0, 0, 2424938, 0, 0, 2424939, 0, 0, 2424940, 0, 0, 2424941, 0, 0, 2424942, 0, 0, 2424943, 0, 0, 2424944, 0, 0, 2424945, 0, 0, 2424946, 0, 0, 2424947, 0, 0, 2424948, 0, 0, 2424949, 0, 0, 2424950, 0, 0, 2424951, 0, 0, 2424952, 0, 0, 2424953, 0, 0, 2424954, 0, 0, 2424955, 0, 0, 2424956, 0, 0, 2424957, 0, 0, 2424958, 0, 0, 2424959, 0, 0, 2424960, 0, 0, 2424961, 0, 0, 2424962, 0, 0, 2424963, 0, 0, 2424964, 0, 0, 2424965, 0, 0, 2424966, 0, 0, 2424967, 0, 0, 2424968, 0, 0, 2424969, 0, 0, 2424970, 0, 0, 2490367, 0, 0, 2424831, 0, 0, 2359295, 0, 0, 2293759, 0, 0, 2228223, 0, 0, 2162687, 0, 0, 2097151, 0, 0, 2031615, 0, 0, 1966079, 0, 0, 1900543, 0, 0, 1835007, 0, 0, 1769471, 0, 0, 1703935, 0, 0, 1638399, 0, 0, 1572863, 0, 0, 1507327, 0, 0, 1441791, 0, 0, 1376255, 0, 0, 1310719, 0, 0, 1245183, 0, 0, 1179647, 0, 0, 1114111, 0, 0, 1048575, 0, 0, 983039, 0, 0, 917503, 0, 0, 851967, 0, 0, 786431, 0, 0, 720895, 0, 0, 655359, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 131071, 0, 0, 65535, 0, 0)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="spaceSprite" type="Sprite2D" parent="ParallaxBackground/Space"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_1fvn5")
+centered = false
+
+[node name="Ship" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(960, 0)
+
+[node name="WallSprite" type="Sprite2D" parent="ParallaxBackground/Ship"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_lia55")
+centered = false
+
+[node name="Hero" type="CharacterBody2D" parent="."]
+position = Vector2(164, 544)
+script = ExtResource("4_fyanq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
+position = Vector2(3, -12)
+shape = SubResource("RectangleShape2D_6goo0")
+
+[node name="AnimationSprite" type="AnimatedSprite2D" parent="Hero"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mvxrc")
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+position = Vector2(1, 0)
+limit_left = 0
+limit_top = 0
+limit_bottom = 320
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_right_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Evil" type="CharacterBody2D" parent="."]
+position = Vector2(1562, 528)
+script = ExtResource("8_ue24f")
+metadata/_edit_group_ = true
+
+[node name="AnimationSprite" type="AnimatedSprite2D" parent="Evil"]
+texture_filter = 1
+position = Vector2(4, 0)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_cx0b5")
+animation = &"evilSprite"
+frame = 2
+frame_progress = 0.721757
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Evil"]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_sik1w")

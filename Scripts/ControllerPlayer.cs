@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class ControllerPlayer : CharacterBody2D
 {
@@ -9,13 +8,11 @@ public partial class ControllerPlayer : CharacterBody2D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	private Sprite2D _idleSprite;
-	private AnimatedSprite2D _runSprite;
+	private AnimatedSprite2D _heroSprite;
 
     public override void _Ready()
-    {		
-		_idleSprite = GetNode<Sprite2D>("IdleSprite");
-        _runSprite = GetNode<AnimatedSprite2D>("RunSprite");		
+    {
+        _heroSprite = GetNode<AnimatedSprite2D>("AnimationSprite");		
     }
 
     public override void _PhysicsProcess(double delta)
@@ -42,24 +39,30 @@ public partial class ControllerPlayer : CharacterBody2D
 			velocity.X = Speed;            
         }
 
-		_UpdateSpriteRenderer(velocity.X);
+		_UpdateSpriteRenderer(velocity.X, velocity.Y);
 
         Velocity = velocity;
 		MoveAndSlide();
 	}
 
-	private void _UpdateSpriteRenderer(float velX)
+	private void _UpdateSpriteRenderer(float velX, float velY)
 	{
-		bool running = velX != 0;
-		_idleSprite.Visible = !running;
-		_runSprite.Visible = running;
+        bool running = velX != 0;
+		bool jumping = velY != 0;
 
-		if (running)
+		if (running && !jumping)
 		{
-			_runSprite.Play();
-			_runSprite.FlipH = velX < 0;
+			_heroSprite.Play("Run");
+            _heroSprite.FlipH = velX < 0;			
 		}
-	}
+		else if (jumping)
+        {
+			_heroSprite.Play("JumpUp");
+			_heroSprite.FlipH = velX < 0;
+			_heroSprite.Stop();		
+        }
+        else _heroSprite.Play("Idle");
+    }
 
 
 }

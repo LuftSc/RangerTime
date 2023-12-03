@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Game Time"
-run/main_scene="res://cosmic_ship.tscn"
-config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+run/main_scene="res://Scenes/cosmic_ship.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
