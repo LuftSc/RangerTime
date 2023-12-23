@@ -1,16 +1,15 @@
-[gd_scene load_steps=38 format=3 uid="uid://bjcae5dk5hf0l"]
+[gd_scene load_steps=37 format=3 uid="uid://bjcae5dk5hf0l"]
 
 [ext_resource type="TileSet" uid="uid://vlbo2yyf0eg0" path="res://Tileset/TileMapFloor.tres" id="1_i3syr"]
 [ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_1fvn5"]
 [ext_resource type="Texture2D" uid="uid://yaq30df8fqh2" path="res://Sprites/Background/WALLSParallax.png" id="3_lia55"]
 [ext_resource type="Texture2D" uid="uid://clshj0otimpcp" path="res://Sprites/Hero/SpriteIdle.png" id="5_l18a8"]
-[ext_resource type="Script" path="res://Scenes/player.gd" id="5_tm824"]
+[ext_resource type="Script" path="res://Scenes/hpController.gd" id="5_tm824"]
 [ext_resource type="Texture2D" uid="uid://dbr0iq7hpl4g4" path="res://Sprites/Hero/SpriteJumpUp.png" id="6_wfttc"]
 [ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="7_ops7n"]
 [ext_resource type="Script" path="res://Scenes/Shoot.gd" id="8_6qtii"]
 [ext_resource type="Script" path="res://Scripts/EvilControl.cs" id="8_ue24f"]
 [ext_resource type="Texture2D" uid="uid://o1bxd4cgwb13" path="res://Sprites/Evil/evilSprite.png" id="9_fwep5"]
-[ext_resource type="Script" path="res://Scenes/healthBar.gd" id="12_m54hw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
 size = Vector2(108, 124)
@@ -288,4 +287,3 @@ offset_right = 125.5
 offset_bottom = 35.0
 grow_horizontal = 2
 value = 100.0
-script = ExtResource("12_m54hw")

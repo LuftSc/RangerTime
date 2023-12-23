@@ -10,12 +10,12 @@ public partial class ControllerPlayer : CharacterBody2D
 
 	private AnimatedSprite2D _heroSprite;
 
-    public override void _Ready()
-    {
-        _heroSprite = GetNode<AnimatedSprite2D>("AnimationSprite");		
-    }
+	public override void _Ready()
+	{
+		_heroSprite = GetNode<AnimatedSprite2D>("AnimationSprite");		
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
@@ -26,7 +26,6 @@ public partial class ControllerPlayer : CharacterBody2D
 		// Handle Jump.
 		if (Input.IsKeyPressed(Key.Space) && IsOnFloor())
 			velocity.Y = -JumpVelocity;
-
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		velocity.X = 0;
@@ -36,33 +35,31 @@ public partial class ControllerPlayer : CharacterBody2D
 		}
 		else if (Input.IsKeyPressed(Key.D))
 		{
-			velocity.X = Speed;            
-        }
+			velocity.X = Speed;        
+		}
 
 		_UpdateSpriteRenderer(velocity.X, velocity.Y);
 
-        Velocity = velocity;
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 
 	private void _UpdateSpriteRenderer(float velX, float velY)
 	{
-        bool running = velX != 0;
+		bool running = velX != 0;
 		bool jumping = velY != 0;
 
 		if (running && !jumping)
 		{
 			_heroSprite.Play("Run");
-            _heroSprite.FlipH = velX < 0;			
+			_heroSprite.FlipH = velX < 0;			
 		}
 		else if (jumping)
-        {
+		{
 			_heroSprite.Play("JumpUp");
 			_heroSprite.FlipH = velX < 0;
 			_heroSprite.Stop();		
-        }
-        else _heroSprite.Play("Idle");
-    }
-
-
+		}
+		else _heroSprite.Play("Idle");
+	}
 }
