@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://5geed85884vl"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_crhet"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_crhet")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 514.5
+offset_top = 261.0
+offset_right = 611.5
+offset_bottom = 284.0
+text = "ВЫ УМЕРЛИ"
+
+[node name="YouDied" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_top = 0.42
+anchor_right = 0.413
+anchor_bottom = 0.42
+offset_left = -5.77603
+offset_top = 16.84
+offset_right = 188.224
+offset_bottom = 47.84
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Выход в главное меню
+"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="YouDied" to="." method="_on_you_died_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

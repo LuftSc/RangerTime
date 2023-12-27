@@ -1,10 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://bjcae5dk5hf0l"]
+[gd_scene load_steps=42 format=3 uid="uid://bjcae5dk5hf0l"]
 
 [ext_resource type="TileSet" uid="uid://vlbo2yyf0eg0" path="res://Tileset/TileMapFloor.tres" id="1_i3syr"]
 [ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_1fvn5"]
 [ext_resource type="Texture2D" uid="uid://yaq30df8fqh2" path="res://Sprites/Background/WALLSParallax.png" id="3_lia55"]
-[ext_resource type="Texture2D" uid="uid://clshj0otimpcp" path="res://Sprites/Hero/SpriteIdle.png" id="5_l18a8"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="5_tm824"]
+[ext_resource type="Texture2D" uid="uid://do4njolyqrvrs" path="res://Sprites/Hero/fullspritesheet.png" id="6_q0si3"]
 [ext_resource type="Texture2D" uid="uid://dbr0iq7hpl4g4" path="res://Sprites/Hero/SpriteJumpUp.png" id="6_wfttc"]
 [ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="7_ops7n"]
 [ext_resource type="Script" path="res://Scenes/Shoot.gd" id="8_6qtii"]
@@ -17,33 +17,41 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
 size = Vector2(108, 124)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljsvl"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwqpr"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4omau"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt0ty"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pau0m"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb2cs"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sn6r6"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlh2v"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ykx6"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjdg2"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5wy3"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsb1n"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bytnc"]
-atlas = ExtResource("5_l18a8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rnin"]
+atlas = ExtResource("6_q0si3")
 region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xjhl"]
+atlas = ExtResource("6_q0si3")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqgil"]
+atlas = ExtResource("6_q0si3")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ndtgt"]
 atlas = ExtResource("6_wfttc")
@@ -97,25 +105,31 @@ region = Rect2(64, 128, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ljsvl")
+"texture": SubResource("AtlasTexture_iwqpr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4omau")
+"texture": SubResource("AtlasTexture_dt0ty")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pau0m")
+"texture": SubResource("AtlasTexture_pb2cs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sn6r6")
+"texture": SubResource("AtlasTexture_rlh2v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ykx6")
+"texture": SubResource("AtlasTexture_sjdg2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q5wy3")
+"texture": SubResource("AtlasTexture_xsb1n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bytnc")
+"texture": SubResource("AtlasTexture_3rnin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xjhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqgil")
 }],
 "loop": true,
 "name": &"Idle",
@@ -295,4 +309,4 @@ value = 100.0
 script = ExtResource("12_m54hw")
 
 [node name="Evil_Hands" parent="." instance=ExtResource("13_kxi2i")]
-position = Vector2(891, 548)
+position = Vector2(889, 554)

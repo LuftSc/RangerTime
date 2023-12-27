@@ -7,7 +7,9 @@ func _process(delta):
 
 func _on_area_2d_player_entered(body):
 	if body.name == "Hero":
-		body.currentHealth -= 10
+		body.currentHealth -= 50
+		if body.currentHealth <= 0:
+			body.on_death()
 
 
 

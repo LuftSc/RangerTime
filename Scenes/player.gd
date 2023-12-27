@@ -53,10 +53,13 @@ func handleCollision():
 		var collider = collision.get_collider()
 		if (collider.name == "Evil"):
 			currentHealth -= 10
-			if currentHealth < 0:
-				currentHealth = maxHealth
+			if currentHealth <= 0:
+				on_death()
 		
 func _physics_process(delta):
 	controller(delta)
 	handleCollision()
+
+func on_death():
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
