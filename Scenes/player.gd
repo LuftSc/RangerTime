@@ -59,3 +59,4 @@ func handleCollision():
 func _physics_process(delta):
 	controller(delta)
 	handleCollision()
+

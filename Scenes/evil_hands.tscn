@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://donqqgeotwy8"]
+
+[ext_resource type="Script" path="res://Scripts/evil_hands.gd" id="1_pcetu"]
+[ext_resource type="Texture2D" uid="uid://cap2vguv2xw7k" path="res://Sprites/Evil/evil_hands.png" id="2_0qigc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvdb6"]
+atlas = ExtResource("2_0qigc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x235"]
+atlas = ExtResource("2_0qigc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t8io"]
+atlas = ExtResource("2_0qigc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cp2u"]
+atlas = ExtResource("2_0qigc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1igi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvdb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x235")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t8io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cp2u")
+}],
+"loop": true,
+"name": &"animated",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4fga"]
+size = Vector2(186, 146.5)
+
+[node name="Evil_Hands" type="Node2D"]
+script = ExtResource("1_pcetu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_k1igi")
+animation = &"animated"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 22.25)
+shape = SubResource("RectangleShape2D_n4fga")
+
+[connection signal="sprite_frames_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_frames_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_player_entered"]

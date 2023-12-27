@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bjcae5dk5hf0l"]
+[gd_scene load_steps=40 format=3 uid="uid://bjcae5dk5hf0l"]
 
 [ext_resource type="TileSet" uid="uid://vlbo2yyf0eg0" path="res://Tileset/TileMapFloor.tres" id="1_i3syr"]
 [ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_1fvn5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://o1bxd4cgwb13" path="res://Sprites/Evil/evilSprite.png" id="9_fwep5"]
 [ext_resource type="PackedScene" uid="uid://2mbrhq65dxqd" path="res://Scenes/in_game_menu.tscn" id="12_kp3jh"]
 [ext_resource type="Script" path="res://Scenes/healthBar.gd" id="12_m54hw"]
+[ext_resource type="PackedScene" uid="uid://donqqgeotwy8" path="res://Scenes/evil_hands.tscn" id="13_kxi2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
 size = Vector2(108, 124)
@@ -292,3 +293,6 @@ offset_bottom = 35.0
 grow_horizontal = 2
 value = 100.0
 script = ExtResource("12_m54hw")
+
+[node name="Evil_Hands" parent="." instance=ExtResource("13_kxi2i")]
+position = Vector2(891, 548)
