@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bjcae5dk5hf0l"]
+[gd_scene load_steps=45 format=3 uid="uid://bjcae5dk5hf0l"]
 
 [ext_resource type="TileSet" uid="uid://vlbo2yyf0eg0" path="res://Tileset/TileMapFloor.tres" id="1_i3syr"]
 [ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_1fvn5"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://2mbrhq65dxqd" path="res://Scenes/in_game_menu.tscn" id="12_kp3jh"]
 [ext_resource type="Script" path="res://Scenes/healthBar.gd" id="12_m54hw"]
 [ext_resource type="PackedScene" uid="uid://donqqgeotwy8" path="res://Scenes/evil_hands.tscn" id="13_kxi2i"]
+[ext_resource type="Texture2D" uid="uid://cnevanfff1kwm" path="res://Sprites/ProgressBar/progressBar.png" id="13_thajy"]
+[ext_resource type="Texture2D" uid="uid://cdl00amg7y37b" path="res://Sprites/ProgressBar/progress.png" id="14_f63aa"]
+[ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="15_vipe1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6goo0"]
 size = Vector2(108, 124)
@@ -298,6 +301,7 @@ shape = SubResource("CapsuleShape2D_sik1w")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -307,6 +311,18 @@ offset_bottom = 35.0
 grow_horizontal = 2
 value = 100.0
 script = ExtResource("12_m54hw")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 162.0
+offset_bottom = 169.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("13_thajy")
+texture_progress = ExtResource("14_f63aa")
+script = ExtResource("15_vipe1")
 
 [node name="Evil_Hands" parent="." instance=ExtResource("13_kxi2i")]
 position = Vector2(1756, 554)
