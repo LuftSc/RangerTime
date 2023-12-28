@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dbr0iq7hpl4g4" path="res://Sprites/Hero/SpriteJumpUp.png" id="6_wfttc"]
 [ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="7_ops7n"]
 [ext_resource type="Script" path="res://Scenes/Shoot.gd" id="8_6qtii"]
-[ext_resource type="Script" path="res://Scripts/EvilControl.cs" id="8_ue24f"]
 [ext_resource type="Texture2D" uid="uid://o1bxd4cgwb13" path="res://Sprites/Evil/evilSprite.png" id="9_fwep5"]
+[ext_resource type="Script" path="res://Scripts/Evil.gd" id="10_imw2r"]
 [ext_resource type="PackedScene" uid="uid://2mbrhq65dxqd" path="res://Scenes/in_game_menu.tscn" id="12_kp3jh"]
 [ext_resource type="Script" path="res://Scenes/healthBar.gd" id="12_m54hw"]
 [ext_resource type="PackedScene" uid="uid://donqqgeotwy8" path="res://Scenes/evil_hands.tscn" id="13_kxi2i"]
@@ -278,8 +278,8 @@ position = Vector2(47, -6)
 script = ExtResource("8_6qtii")
 
 [node name="Evil" type="CharacterBody2D" parent="." groups=["evil"]]
-position = Vector2(1562, 528)
-script = ExtResource("8_ue24f")
+position = Vector2(1492, 515)
+script = ExtResource("10_imw2r")
 metadata/_edit_group_ = true
 
 [node name="AnimationSprite" type="AnimatedSprite2D" parent="Evil"]
@@ -309,4 +309,4 @@ value = 100.0
 script = ExtResource("12_m54hw")
 
 [node name="Evil_Hands" parent="." instance=ExtResource("13_kxi2i")]
-position = Vector2(889, 554)
+position = Vector2(1756, 554)

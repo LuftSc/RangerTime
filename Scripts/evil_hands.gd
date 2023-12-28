@@ -1,6 +1,7 @@
 extends Node2D
+	
+@onready var _evilHandSprite = $AnimatedSprite2D
 
-@onready var _evilHandSprite = $AnimatedSprite2D	
 
 func _process(delta):
 	_evilHandSprite.play("animated")

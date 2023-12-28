@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var maxHealth = 100
 @export var currentHealth: int = maxHealth
+@export var isTimeStopped = false
 var _heroSprite: AnimatedSprite2D
 
 func _ready():
@@ -27,6 +28,11 @@ func controller(delta):
 		vel.x = SPEED
 	if (Input.is_action_pressed("left")):
 		vel.x = -SPEED
+	if Input.is_action_just_pressed("clicker right"):
+		if isTimeStopped != true:
+			isTimeStopped = true
+		else:
+			isTimeStopped = false
 		
 	updateSpriteRenderer(vel.x,vel.y)
 	
@@ -52,14 +58,14 @@ func handleCollision():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if (collider.name == "Evil"):
-			currentHealth -= 10
+			currentHealth -= 5
 			if currentHealth <= 0:
 				on_death()
 		
 func _physics_process(delta):
 	controller(delta)
 	handleCollision()
+	
 
 func on_death():
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-

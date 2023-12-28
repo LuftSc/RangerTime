@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://c673c8q71q58v" path="res://Sprites/Bullet/BulletHero.png" id="2_v7e71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86nnx"]
-size = Vector2(70, 36)
+size = Vector2(39, 18)
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
 script = ExtResource("1_25j5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(10, 10)
+scale = Vector2(5.55, 5.55)
 texture = ExtResource("2_v7e71")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 0)
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_86nnx")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

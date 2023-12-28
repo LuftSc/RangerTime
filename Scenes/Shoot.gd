@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	
-	if Input.is_action_just_pressed("clicker"):
+	if Input.is_action_just_pressed("clicker left"):
 		var bullet = BULLET.instantiate()
 		bullet.position = get_parent().global_position
 		get_parent().get_parent().add_child(bullet)
