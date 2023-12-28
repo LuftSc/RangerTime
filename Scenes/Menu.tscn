@@ -1,22 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmv161nhqruvq"]
+[gd_scene load_steps=3 format=3 uid="uid://dmv161nhqruvq"]
 
 [ext_resource type="Script" path="res://Scripts/Main_menu.gd" id="1_865ma"]
+[ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_i7wlk"]
 
 [node name="Menu" type="Node2D"]
 
 [node name="Main menu" type="CanvasLayer" parent="."]
 script = ExtResource("1_865ma")
 
+[node name="PlanetParallax" type="Sprite2D" parent="Main menu"]
+texture_filter = 1
+position = Vector2(578, 324)
+scale = Vector2(3.60625, 3.6)
+texture = ExtResource("2_i7wlk")
+
 [node name="MarginContainer" type="MarginContainer" parent="Main menu"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 749.0
-offset_top = -51.0
-offset_bottom = 51.0
+offset_top = -85.0
+offset_right = -778.0
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main menu/MarginContainer"]
 layout_mode = 2
