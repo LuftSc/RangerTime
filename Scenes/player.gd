@@ -8,11 +8,13 @@ const JUMP_VELOCITY = 800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var maxHealth = 100
 @export var currentHealth: int = maxHealth
-@export var isTimeStopped = false
-var _heroSprite: AnimatedSprite2D
+var shake
+
+var time = 0
+@onready var _heroSprite: AnimatedSprite2D = $AnimationSprite
 
 func _ready():
-	_heroSprite = $AnimationSprite
+	shake = false
 	
 func controller(delta):
 	var vel = velocity
@@ -26,17 +28,13 @@ func controller(delta):
 	vel.x = 0
 	if (Input.is_action_pressed("right")):
 		vel.x = SPEED
-	if (Input.is_action_pressed("left")):
+	elif (Input.is_action_pressed("left")):
 		vel.x = -SPEED
-	if Input.is_action_just_pressed("clicker right"):
-		if isTimeStopped != true:
-			isTimeStopped = true
-		else:
-			isTimeStopped = false
 		
-	updateSpriteRenderer(vel.x,vel.y)
 	
 	velocity = vel
+		
+	updateSpriteRenderer(vel.x,vel.y)	
 	move_and_slide()
 	
 func updateSpriteRenderer(velX:float,velY:float):
@@ -52,19 +50,29 @@ func updateSpriteRenderer(velX:float,velY:float):
 		_heroSprite.stop()
 	else:
 		_heroSprite.play("Idle")
-				
-func handleCollision():
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if (collider.name == "Evil"):
-			currentHealth -= 5
-			if currentHealth <= 0:
-				on_death()
+	
 		
 func _physics_process(delta):
 	controller(delta)
-	handleCollision()
+	shaker()
+	
+
+func take_damage(damage_amount):
+	_heroSprite.use_parent_material = false
+	currentHealth -= damage_amount 
+	shake = true
+	$AnimationPlayer.play("Damage_animation")
+	if currentHealth <= 0:
+		on_death()
+	
+
+func shaker():
+	if shake:
+		time += 1
+		var final_pos = Vector2(sin(time)*10,sin(time)*20)	
+		$Camera2D.offset = lerp($Camera2D.offset, final_pos, 0.2)
+	elif time:
+		time = 0
 	
 
 func on_death():
