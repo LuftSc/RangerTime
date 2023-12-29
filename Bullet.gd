@@ -2,9 +2,12 @@ extends Area2D
 
 const SPEED = 500
 var velocity = Vector2()
+@export var direction = 1
 
 func _physics_process(delta):
-	velocity.x = SPEED * delta
+	velocity.x = SPEED * delta * direction
+	if(direction == -1):
+		$Sprite2D.flip_h = true
 	translate(velocity)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

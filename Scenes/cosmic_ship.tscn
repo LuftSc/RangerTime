@@ -8,12 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://do4njolyqrvrs" path="res://Sprites/Hero/fullspritesheet.png" id="6_q0si3"]
 [ext_resource type="Texture2D" uid="uid://dbr0iq7hpl4g4" path="res://Sprites/Hero/SpriteJumpUp.png" id="6_wfttc"]
 [ext_resource type="Texture2D" uid="uid://rye62komnvd" path="res://Sprites/Hero/SpriteRun.png" id="7_ops7n"]
-[ext_resource type="Script" path="res://Scenes/Shoot.gd" id="8_6qtii"]
 [ext_resource type="Script" path="res://Scripts/Evil.gd" id="10_imw2r"]
 [ext_resource type="Texture2D" uid="uid://hnp71vlb64op" path="res://Sprites/Evil/evil_sprite_2.png" id="11_biqqp"]
-[ext_resource type="PackedScene" uid="uid://2mbrhq65dxqd" path="res://Scenes/in_game_menu.tscn" id="12_kp3jh"]
+[ext_resource type="PackedScene" uid="uid://cr08unk8s6vri" path="res://Scenes/in_game_menu.tscn" id="12_kp3jh"]
 [ext_resource type="Script" path="res://Scenes/healthBar.gd" id="12_m54hw"]
-[ext_resource type="PackedScene" uid="uid://donqqgeotwy8" path="res://Scenes/evil_hands.tscn" id="13_kxi2i"]
+[ext_resource type="PackedScene" path="res://Scenes/evil_hands.tscn" id="13_kxi2i"]
 [ext_resource type="Texture2D" uid="uid://cnevanfff1kwm" path="res://Sprites/ProgressBar/progressBar.png" id="13_thajy"]
 [ext_resource type="Texture2D" uid="uid://cdl00amg7y37b" path="res://Sprites/ProgressBar/progress.png" id="14_f63aa"]
 [ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="15_vipe1"]
@@ -190,6 +189,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_yaubk"]
+
 [sub_resource type="Animation" id="Animation_avfw0"]
 resource_name = "Damage_animation"
 length = 0.3
@@ -359,6 +360,7 @@ texture = ExtResource("3_lia55")
 centered = false
 
 [node name="Hero" type="CharacterBody2D" parent="." groups=["player"]]
+process_mode = 3
 position = Vector2(164, 544)
 script = ExtResource("5_tm824")
 metadata/_edit_group_ = true
@@ -390,12 +392,19 @@ editor_draw_drag_margin = true
 
 [node name="Marker2D" type="Marker2D" parent="Hero"]
 position = Vector2(47, -6)
-script = ExtResource("8_6qtii")
+script = SubResource("GDScript_yaubk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hero"]
 libraries = {
 "": SubResource("AnimationLibrary_j0yem")
 }
+
+[node name="JerkTimer" type="Timer" parent="Hero"]
+wait_time = 0.3
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="Hero"]
+wait_time = 2.0
 
 [node name="Evil" type="CharacterBody2D" parent="." groups=["evil"]]
 texture_filter = 1
@@ -450,5 +459,7 @@ script = ExtResource("15_vipe1")
 [node name="Evil_Hands" parent="." instance=ExtResource("13_kxi2i")]
 position = Vector2(2334, 563)
 
+[connection signal="timeout" from="Hero/JerkTimer" to="Hero" method="_on_timer_timeout"]
+[connection signal="timeout" from="Hero/PauseTimer" to="Hero" method="_on_pause_timer_timeout"]
 [connection signal="body_entered" from="Evil/PlayerDetector" to="Evil" method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Evil/PlayerDetector" to="Evil" method="_on_player_detector_body_exited"]

@@ -4,6 +4,7 @@ class_name Player
 
 const SPEED = 400.0
 const JUMP_VELOCITY = 800.0
+const BULLET = preload("res://Bullet.tscn")
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var maxHealth = 100
@@ -24,14 +25,37 @@ func controller(delta):
 		
 	if (Input.is_action_just_pressed("space") && is_on_floor()):
 		vel.y = -JUMP_VELOCITY
-	
-	vel.x = 0
+		
+	if (Input.is_action_just_pressed("jerk right")):
+		vel.x = SPEED * 10
+		$JerkTimer.start()
+		
+	if (Input.is_action_just_pressed("jerk left")):
+		vel.x = SPEED * 10 * -1
+		currentHealth += 20
+		$JerkTimer.start()	
+		
 	if (Input.is_action_pressed("right")):
 		vel.x = SPEED
+		$Marker2D.position.x = abs($Marker2D.position.x)
+		
+	if (Input.is_action_just_released("right") || Input.is_action_just_released("left")):
+		vel.x = 0
+		
 	elif (Input.is_action_pressed("left")):
 		vel.x = -SPEED
+		$Marker2D.position.x = abs($Marker2D.position.x) * -1
 		
-	
+	if Input.is_action_just_pressed("clicker left"):
+		var bullet = BULLET.instantiate()
+		bullet.direction = sign($Marker2D.position.x)
+		bullet.position = $Marker2D.global_position
+		get_parent().add_child(bullet)
+	if (Input.is_action_just_pressed("clicker right")):
+		get_tree().paused = true
+		$PauseTimer.start()
+		
+		
 	velocity = vel
 		
 	updateSpriteRenderer(vel.x,vel.y)	
@@ -56,6 +80,8 @@ func _physics_process(delta):
 	controller(delta)
 	shaker()
 	
+func stop_movement():
+	get_tree().paused = true
 
 func take_damage(damage_amount):
 	_heroSprite.use_parent_material = false
@@ -77,3 +103,9 @@ func shaker():
 
 func on_death():
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+
+func _on_timer_timeout():
+	velocity.x = 0
+
+func _on_pause_timer_timeout():
+	get_tree().paused = false
