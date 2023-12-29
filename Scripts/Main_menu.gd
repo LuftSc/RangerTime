@@ -5,7 +5,7 @@ func _on_start_game_pressed():
 
 
 func _on_about_authors_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Authors.tscn")
 
 
 func _on_exit_pressed():

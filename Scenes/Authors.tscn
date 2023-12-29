@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbvjgq2hhjern"]
+
+[ext_resource type="Script" path="res://Scripts/Authors.gd" id="1_8a7v2"]
+[ext_resource type="Texture2D" uid="uid://cl36r67eufqv4" path="res://Sprites/Background/planetParallax.png" id="2_u6yv7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nffsq"]
+font_size = 30
+font_color = Color(0, 0.764706, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4nk0"]
+font_size = 30
+font_color = Color(0.819608, 0, 0.831373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fwcj2"]
+font_size = 30
+font_color = Color(0.247059, 1, 0.345098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xtgs"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w3m5"]
+font_size = 30
+font_color = Color(1, 0, 0.592157, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_8a7v2")
+
+[node name="PlanetParallax" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(575, 322.5)
+scale = Vector2(3.58125, 3.57222)
+texture = ExtResource("2_u6yv7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 15.0
+offset_top = 602.0
+offset_right = 156.0
+offset_bottom = 637.0
+text = "Назад"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 8.0
+offset_right = 422.0
+offset_bottom = 50.0
+text = "Зверев Артем Сергеевич"
+label_settings = SubResource("LabelSettings_nffsq")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 64.0
+offset_right = 545.0
+offset_bottom = 106.0
+text = "Савватеев Даниил Владимирович"
+label_settings = SubResource("LabelSettings_g4nk0")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 116.0
+offset_right = 490.0
+offset_bottom = 158.0
+text = "Китушкин Данил Яковлевич"
+label_settings = SubResource("LabelSettings_fwcj2")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 57.0
+offset_top = 177.0
+offset_right = 481.0
+offset_bottom = 219.0
+text = "Иванов Никита Васильевич"
+label_settings = SubResource("LabelSettings_4xtgs")
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 238.0
+offset_right = 538.0
+offset_bottom = 280.0
+text = "Бердышев Артём Александрович"
+label_settings = SubResource("LabelSettings_8w3m5")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

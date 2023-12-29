@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://5geed85884vl"]
+[gd_scene load_steps=3 format=3 uid="uid://5geed85884vl"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_crhet"]
+[ext_resource type="Texture2D" uid="uid://bt6hl7e4gls8o" path="res://Sprites/Background/parallax-space-big-planet.png" id="2_vqp55"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_crhet")
+
+[node name="Parallax-space-big-planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(483, 160)
+scale = Vector2(18.3011, 19.2356)
+texture = ExtResource("2_vqp55")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
